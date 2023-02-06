@@ -25,3 +25,6 @@ Route::get('/person/delete/{person}', [MainController::class, 'delete']) -> name
 
 // Create route
 Route::get('/person/create', [MainController::class, 'create']) -> name('person.create');
+
+// Store route
+Route::post('/person/store', [MainController::class, 'store']) -> name('person.store');

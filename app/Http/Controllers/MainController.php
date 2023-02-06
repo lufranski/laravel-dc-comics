@@ -12,7 +12,7 @@ class MainController extends Controller
     public function home(){
 
         // metodo compatto con compact
-        $people = Person::all();
+        $people = Person::orderBy('created_at', 'DESC') -> get();
 
         // metodo esteso con array data, in questo caso bisognerebbe agganciare $data al posto di compact['nomeArray']
         // $data = [
@@ -41,5 +41,22 @@ class MainController extends Controller
     public function create(){
 
         return view ('pages.create');
+    }
+
+    // Store method - submit new item
+    public function store(Request $request){
+
+        $data = $request -> all();
+
+        $person = new Person();
+
+        $person -> firstName = $data['firstName'];
+        $person -> lastName = $data['lastName'];
+        $person -> dateOfBirth = $data['dateOfBirth'];
+        $person -> height = $data['height'];
+
+        $person -> save();
+
+        return redirect() -> route('home');
     }
 }
