@@ -8,13 +8,17 @@
         @foreach ($people as $person)
             
             <li>
-                <h6>
 
-                    {{ $person -> firstName }} {{ $person -> lastName }} 
-                </h6>
-                <p>
-                    Born in: {{ $person -> dateOfBirth }}, Height: {{ $person -> height }} cm
-                </p>
+                <a href="{{ route('person.show', $person)}}">
+
+                    <h6>
+    
+                        {{ $person -> firstName }} {{ $person -> lastName }} 
+                    </h6>
+                    <p>
+                        Born in: {{ $person -> dateOfBirth }}, Height: {{ $person -> height }} cm
+                    </p>
+                </a>
             </li>
         @endforeach
     </ul>
