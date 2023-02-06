@@ -46,7 +46,17 @@ class MainController extends Controller
     // Store method - submit new item
     public function store(Request $request){
 
-        $data = $request -> all();
+        // No validation
+        // $data = $request -> all();
+
+        // With validation
+        $data = $request -> validate([
+
+            'firstName' => 'required|string|max:32',
+            'lastName' => 'required|string|max:32',
+            'dateOfBirth' => 'required|date',
+            'height' => 'nullable|integer|min:140|max:220'
+        ]);
 
         $person = new Person();
 
@@ -69,7 +79,17 @@ class MainController extends Controller
     // Update method - submit changes
     public function update(Request $request, Person $person){
 
-        $data = $request -> all();
+        // No validation
+        // $data = $request -> all();
+
+        // With validation
+        $data = $request -> validate([
+
+            'firstName' => 'required|string|max:32',
+            'lastName' => 'required|string|max:32',
+            'dateOfBirth' => 'required|date',
+            'height' => 'nullable|integer|min:140|max:220'
+        ]);
 
         $person -> firstName = $data['firstName'];
         $person -> lastName = $data['lastName'];
