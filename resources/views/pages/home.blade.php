@@ -19,6 +19,10 @@
                         Born in: {{ $person -> dateOfBirth }}, Height: {{ $person -> height }} cm
                     </p>
                 </a>
+
+                <a href="{{ route('person.delete', $person) }}">
+                    X
+                </a>
             </li>
         @endforeach
     </ul>

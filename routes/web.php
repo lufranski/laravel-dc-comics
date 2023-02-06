@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
 
-Route::get('/', [MainController::class, 'home']);
+Route::get('/', [MainController::class, 'home']) -> name('home');
 
 // Show route
 Route::get('/person/show/{person}', [MainController::class, 'show']) -> name('person.show');
+
+// Delete route
+Route::get('/person/delete/{person}', [MainController::class, 'delete']) -> name('person.delete'); 
