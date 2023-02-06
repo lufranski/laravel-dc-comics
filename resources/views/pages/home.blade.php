@@ -26,6 +26,10 @@
                     </p>
                 </a>
 
+                <a href="{{ route('person.edit', $person) }}">
+                    EDIT
+                </a>
+
                 <a href="{{ route('person.delete', $person) }}">
                     X
                 </a>

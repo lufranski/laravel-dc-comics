@@ -28,3 +28,9 @@ Route::get('/person/create', [MainController::class, 'create']) -> name('person.
 
 // Store route
 Route::post('/person/store', [MainController::class, 'store']) -> name('person.store');
+
+// Edit route
+Route::get('/person/edit/{person}', [MainController::class, 'edit']) -> name('person.edit');
+
+// Update route
+Route::post('/person/update/{person}', [MainController::class, 'update']) -> name('person.update');

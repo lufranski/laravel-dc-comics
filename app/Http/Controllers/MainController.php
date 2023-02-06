@@ -59,4 +59,25 @@ class MainController extends Controller
 
         return redirect() -> route('home');
     }
+
+    // Edit method - change an already existent item
+    public function edit(Person $person){
+
+        return view('pages.edit', compact('person'));
+    }
+
+    // Update method - submit changes
+    public function update(Request $request, Person $person){
+
+        $data = $request -> all();
+
+        $person -> firstName = $data['firstName'];
+        $person -> lastName = $data['lastName'];
+        $person -> dateOfBirth = $data['dateOfBirth'];
+        $person -> height = $data['height'];
+
+        $person -> save();
+
+        return redirect() -> route('home');
+    }
 }
