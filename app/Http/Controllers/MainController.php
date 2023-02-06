@@ -23,17 +23,23 @@ class MainController extends Controller
         return view('pages.home', compact('people'));
     }
 
-    // Show method
+    // Show method - land to an item page
     public function show(Person $person){
 
         return view('pages.show', compact('person'));
     }
 
-    // Delete method
+    // Delete method - delete an item
     public function delete(Person $person){
 
         $person -> delete();
 
         return redirect() -> route('home');
+    }
+
+    // Create method - create new item
+    public function create(){
+
+        return view ('pages.create');
     }
 }

@@ -21,4 +21,7 @@ Route::get('/', [MainController::class, 'home']) -> name('home');
 Route::get('/person/show/{person}', [MainController::class, 'show']) -> name('person.show');
 
 // Delete route
-Route::get('/person/delete/{person}', [MainController::class, 'delete']) -> name('person.delete'); 
+Route::get('/person/delete/{person}', [MainController::class, 'delete']) -> name('person.delete');
+
+// Create route
+Route::get('/person/create', [MainController::class, 'create']) -> name('person.create');
